@@ -11,7 +11,7 @@ Vue.use(VueMaterial)
 import App from './App.vue'
 
 Vue.use(MaterialDashboard);
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 const router = new VueRouter({
   routes,

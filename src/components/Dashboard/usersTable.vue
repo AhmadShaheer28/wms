@@ -1,8 +1,7 @@
 <template>
   <div class="content">
     <div class="md-layout">
-      <div
-        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100">
+      <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100">
         <md-card>
           <md-card-header data-background-color="green">
             <h4 class="title">Users</h4>
@@ -11,7 +10,7 @@
             <simple-table table-header-color="green"></simple-table>
           </md-card-content>
         </md-card>
-      </div> 
+      </div>
     </div>
   </div>
 </template>
@@ -20,7 +19,7 @@
 import simpleTable from "../pages/SimpleTable.vue";
 
 export default {
-    name: 'users-table',
+  name: "users-table",
   components: {
     simpleTable
   }

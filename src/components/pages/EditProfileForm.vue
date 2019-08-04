@@ -9,11 +9,23 @@
         <div class="md-layout">
           <div class="md-layout-item md-small-size-100 md-size-50">
             <md-field>
+              <label>User Name</label>
+              <md-input v-model="username" type="text"></md-input>
+            </md-field>
+          </div>
+          <div class="md-layout-item md-small-size-100 md-size-50">
+            <md-field>
+              <label>Password</label>
+              <md-input v-model="password" type="password"></md-input>
+            </md-field>
+          </div>
+          <div class="md-layout-item md-small-size-100 md-size-33">
+            <md-field>
               <label>First Name</label>
               <md-input v-model="firstname" type="text"></md-input>
             </md-field>
           </div>
-          <div class="md-layout-item md-small-size-100 md-size-50">
+          <div class="md-layout-item md-small-size-100 md-size-33">
             <md-field>
               <label>Last Name</label>
               <md-input v-model="lastname" type="text"></md-input>
@@ -21,20 +33,8 @@
           </div>
           <div class="md-layout-item md-small-size-100 md-size-33">
             <md-field>
-              <label>User Name</label>
-              <md-input v-model="username" type="text"></md-input>
-            </md-field>
-          </div>
-          <div class="md-layout-item md-small-size-100 md-size-33">
-            <md-field>
               <label>Contact</label>
               <md-input v-model="contact" type="number"></md-input>
-            </md-field>
-          </div>
-          <div class="md-layout-item md-small-size-100 md-size-33">
-            <md-field>
-              <label>Password</label>
-              <md-input v-model="password" type="text"></md-input>
             </md-field>
           </div>
           <div class="md-layout-item md-small-size-100 md-size-100">
@@ -63,7 +63,7 @@
           </div>
 
           <div class="md-layout-item md-size-100 text-right">
-            <md-button class="md-raised md-success">Create</md-button>
+            <md-button v-on:click="createUser" class="md-raised md-success">Create</md-button>
           </div>
         </div>
       </md-card-content>
@@ -71,6 +71,7 @@
   </form>
 </template>
 <script>
+import UserRepository from "../../repository/UserRepository";
 export default {
   name: "create-profile-form",
   props: {
@@ -83,7 +84,7 @@ export default {
     return {
       username: null,
       password: null,
-      contact:null,
+      contact: null,
       description: null,
       lastname: null,
       firstname: null,
@@ -91,6 +92,25 @@ export default {
       country: null,
       role: null
     };
+  },
+
+  methods: {
+    async createUser() {
+      const user = {
+        userName: this.username,
+        password: this.password,
+        firstName: this.firstname,
+        lastName: this.lastname,
+        contact: this.contact,
+        description: this.description,
+        role: this.role,
+        city: this.city,
+        country: this.country
+      };
+
+      console.log(user);
+      await UserRepository.create(user);
+    }
   }
 };
 </script>

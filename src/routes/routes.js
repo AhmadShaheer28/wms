@@ -1,5 +1,4 @@
-import DashboardLayout from '@/components/Layout/DashboardLayout.vue' 
-
+import DashboardLayout from '@/components/Layout/DashboardLayout.vue'
 import login from '@/components/login.vue'
 import usertable from '@/components/Dashboard/usersTable.vue'
 import createUser from '@/components/Dashboard/createUser.vue'
@@ -9,10 +8,12 @@ import create_item from '@/components/Dashboard/CreateItem.vue'
 import list_item from '@/components/Dashboard/listItem.vue'
 
 export const routes = [
-  {path: '', component: login},
-  {path: '/dashboard', component: DashboardLayout,
+  { path: '', component: login },
+  {
+    path: '/dashboard',
+    component: DashboardLayout,
     name: "Dashboard",
-    children:[
+    children: [
       {
         path: "usertable",
         name: "Users",
@@ -43,6 +44,6 @@ export const routes = [
         name: "List Item",
         component: list_item
       }
-    ]  
+    ]
   }
 ];
